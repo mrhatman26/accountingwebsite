@@ -1,0 +1,52 @@
+Table Column Descriptions
+
+Table Users (table_users):
+	-user_id (Integer): The user's ID used to identify the user and link them to other tables (Primary Key).
+	-user_name (String): The user's username. Can be used to identify their ID since usernames must be unique.
+	-user_pass (String): The user's password. To be hidden with hashlib.
+	-user_isAdmin (Boolean): The user's admin status. If  True, they will have access to admin pages (DANGEROUS). Default is False.
+	
+Table Settings (table_settings):
+	-setting_id (Integer): The setting ID used to identify the setting and link them to other tables (Primary Key).
+	-setting_monthly (Boolean): Describes if a user is paid monthly or weekly. If False, all payments will be set to be made in the first week. Default is True (User IS paid monthly).
+		>If the user swaps this value AFTER creation of monthly/weekly tables, those tables will ALL be deleted to avoid confusion.
+	-setting_del_prev (Boolean): If True, the previous pay month/week will be deleted after creation of current one. Default is False.
+	-setting_def_p_use (Integer between 0 and 100): The default p_use value to use when creating a new month/week.
+	-setting_auto_month (Boolean): If True, the next pay month table will be created on the defined date (setting_auto_next_month). Default is False. Once the first month is done, either set this to True or give the user a choice.
+	-setting_auto_next_month (Date): The date in which the next pay month will be created automatically. If None, setting_auto_month will automatically be set to False. Default is None.
+	
+Table Months (table_month):
+	-month_id (Integer): The month ID used to identify this month and link it to other tables (Primar Key).
+	-month_income (Integer > 0): The amount of income this month. Set by the user after this month is created. Must be greater than 0.
+	-month_p_use (Integer 0-100): The percentage of the remaning income (after expense) to use for personal use. The rest will be saved.
+	-month_setup_finalised (Boolean): If False, the user will be asked what their income was for that month after which it will be set to True. Default is False.
+	-month_success (Boolean): If the user spent less this month than the amount determined by month_p_use, this will be set to True to show that they successfully followed the adivce given.
+	
+Table Modifiers (table_modifiers):
+	-mod_id (Integer): The modifier ID used to identify this modifier and link it to other tables (Primary Key).
+	-mod_name (String): The name of the modifier. Used to name the thing that was paid for (E.G: A cheese and onion sandwich).
+	-mod_amount (Integer): The amount that the expense costed.
+	-mod_source (String): The source of the expense (E.G: The name of a shop). 
+	-mod_reason (String): The reason the expense was made.
+	-mod_expense (Boolean): If False, the modifier will instead add to the income. Default is True.
+	
+Table Monthly Expense (table_monthly_expense):
+	-exp_id (Integer): The expense ID used to identify this expense and link it to other tables (Primary Key).
+	-exp_name (String): The name of the expense. Used to name the thing that was paid for (E.G: A chocolate orange).
+	-exp_amount (Integer): The amount that the expense costed.
+	-exp_source (String): The source of the expense (E.G: A museum)
+	-exp_reason (String): The reasib the expense was made.
+
+Table Postpone Expense (table_postpone_expense):
+	-post_id (Integer): The postpone ID used to identify this postponed expense and link it to other tables (Primary Key).
+	-post_name (String): The name of this postponed expense (E.G: A banana).
+	-post_amount (Integer): The amount that this expense costed.
+	-post_source (String): The source of this expense (E.G: A farm shop).
+	-post_reason (String): The reason for this expense being made.
+	-post_times (Integer): The number of months/weeks to postpone this expense for (When this reaches 0, this expense will automatically be added to the current month's modifier table).
+	
+Link Table Column Descriptions:
+
+Link User to Settings (link_user_settings):
+	-user_id (Integer): The user ID to link to (Primary Key) [Foreign Key].
+	-setting_id (Integer): The setting ID to link to [Foreign Key].
