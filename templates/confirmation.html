@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+{% block content %}
+<div id="page_mainbody">
+        <div id="home_paragraph1">
+                <h3 id="page_header">Confirmation</h3>
+                <div id="page_mainbody_home">
+                        <p>{{ message }}</p>
+                        <a href="{{ url_for(dir_to_use) }}" class="button_link"><p class="button" style="background-color: red; border-color: red; color: white;">{{ yes_message }}</p></a>
+                        <a href="{{ url_for(dir_to_return) }}" class="button_link"><p class="button" style="background-color: green; border-color: green; color: white;">{{ no_message }}</p></a>
+                </div>
+        </div>
+</div>
+{% endblock %}

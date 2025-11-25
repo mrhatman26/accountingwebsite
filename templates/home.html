@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block content %}
+<div id="page_mainbody">
+        <div id="home_paragraph1">
+                <h3 id="page_header">Welcome!</h3>
+                <div id="home_image">
+                        <img src="{{ url_for('static', filename='generic.PNG') }}">                        
+                </div>
+                <div id="page_mainbody_home">
+                        <p>Welcome to the VGDatabase. Here, we store data on thousands of games. Here you can find out information about your favourite games, or search
+                        for new games similar to those you love using our tagging system.</p>
+                        <p>To continue, use the navbar above. Note: To add new information to our database, you must create an account and be logged in!</p>
+                </div>
+        </div>
+</div>
+{% endblock %}

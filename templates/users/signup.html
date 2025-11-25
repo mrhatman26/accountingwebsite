@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block content %}
+<div id="page_mainbody">
+        <div id="home_paragraph1">
+                <h3 id="page_header">Signup</h3>
+                <div id="page_mainbody_home">
+                        <form id="signup_form">
+                                <p>Username:</p>
+                                <input class="textbox" type="text" id="user_forename" name="txt_user_forename" maxlength="20" required placeholder="Username">
+                                <br>
+                                <p>Email:</p>
+                                <input class="textbox" type="text" id="user_email" name="txt_user_email" required placeholder="Email" pattern="([A-Za-z0-9]+@[A-Za-z0-9]+\.[A-Za-z0-9]+)|([A-Za-z0-9]+@[A-Za-z0-9]+\.[A-Za-z0-9]+\.[A-Za-z0-9]+)" title="Must be a valid email with '@' and '.com' or similar.">
+                                <br>
+                                <p>Password:</p>
+                                <input class="textbox" type="password" id="user_pass" name="txt_user_pass" required placeholder="Password" pattern="(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain one capital, one lowercase and 8 characters.">
+                                <p style="font-size: 60%;">Must contain one capital, one lowercase and 8 characters.</p>
+                                <br>
+                                <p>Confirm Password:</p>
+                                <input class="textbox" type="password" id="user_conpass" name="txt_user_conpass" required placeholder="Password">
+                                <p style="font-size: 60%;">Must contain one capital, one lowercase and 8 characters.</p>
+                                <br>
+                                <input type="submit" value="Signup" class="submit_button">
+                        </form>
+                        <p>Already have an account?:</p>
+                        <a href="{{ url_for('user_login') }}" class="button">Login</a>
+                </div>
+        </div>
+</div>
+<script src="http://code.jquery.com/jquery.min.js"></script>
+<script src=" {{ url_for('static', filename='scripts/signup.js') }}"></script>
+{% endblock %}

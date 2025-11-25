@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block content %}
+<div id="page_mainbody">
+        <div id="home_paragraph1">
+                <h3 id="page_header">Admin: Main</h3>
+                <div id="page_mainbody_home">
+                    <a href="{{ url_for('admin_user_management') }}" class="button_link"><p class="button">User Management</p></a>
+                    <a href="{{ url_for('admin_database_manage') }}" class="button_link"><p class="button">Database Management</p></a>
+                </div>
+        </div>
+</div>
+{% endblock %}

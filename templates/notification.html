@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block content %}
+<div id="page_mainbody">
+        <div id="home_paragraph1">
+                <h3 id="page_header">{{ notification_title }}</h3>
+                <div id="page_mainbody_home">
+                        <p>{{ notification }}</p>
+                        <a href="{{ url_for(dir_to_use) }}" class="button_link"><p class="button">{{ return_message }}</p></a>
+                </div>
+        </div>
+</div>
+{% endblock %}

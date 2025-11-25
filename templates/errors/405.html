@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block content %}
+<div id="page_mainbody">
+        <div id="home_paragraph1">
+                <p></p>
+                <div id="home_image">
+                        <img src="{{ url_for('static', filename='errors/405WrongMethod.jpg') }}">                        
+                </div>
+                <p>You can't send anything without a POST man</p>
+        </div>
+</div>
+{% endblock %}

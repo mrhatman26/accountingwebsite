@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block content %}
+<div id="page_mainbody">
+        <div id="home_paragraph1">
+                <h3 id="page_header">Modify Account</h3>
+                <div id="page_mainbody_home">
+                        <form id="modify_form">
+                                <p>Name:</p>
+                                <input class="textbox" type="text" id="user_forename" name="txt_user_forename" maxlength="20" value="{{ userdata.user_fullname }}" placeholder="Name">
+                                <br>
+                                <p>Email:</p>
+                                <input class="textbox" type="text" id="user_email" name="txt_user_email" value="{{ userdata.user_email }}" placeholder="Email" pattern="([A-Za-z0-9]+@[A-Za-z0-9]+\.[A-Za-z0-9]+)|([A-Za-z0-9]+@[A-Za-z0-9]+\.[A-Za-z0-9]+\.[A-Za-z0-9]+)" title="Must be a valid email with '@' and '.com' or similar.">
+                                <!--Regex pattern generated with a tool as I don't know how to write it-->
+                                <!--Said tool can be found at: https://regex-generator.olafneumann.org/?sampleText=cmatter%40outlook.com&flags=i&selection=7%7CCharacter,0%7CAlphanumeric%20characters,8%7CAlphanumeric%20characters,16%7CAlphanumeric%20characters-->
+                                <br>
+                                <p>Password:</p>
+                                <input class="textbox" type="password" id="user_pass" name="txt_user_pass" placeholder="Password" pattern="(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain one capital, one lowercase and 8 characters.">
+                                <p style="font-size: 60%;">Must contain one capital, one lowercase and 8 characters.</p>
+                                <br>
+                                <p>Phone Number:</p>
+                                <input class="textbox" type="text" id="user_phone" name="txt_user_phone" maxlength="12" value="{{ userdata.user_phone }}" placeholder="Phone Number" pattern="(07\d\d\d \d\d\d\d\d\d)|(07\d\d\d\d\d\d\d\d\d)">
+                                <br>
+                                <input type="submit" value="modify" class="submit_button">
+                        </form>
+                </div>
+        </div>
+</div>
+<script src="http://code.jquery.com/jquery.min.js"></script>
+<script src=" {{ url_for('static', filename='scripts/modify.js') }}"></script>
+{% endblock %}

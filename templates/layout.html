@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{{ page_name }}</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" media="(orientation: landscape)">
+        <link rel="stylesheet" href="{{ url_for('static', filename='style_phone.css') }}" media="(orientation: portrait)">
+    </head>
+    <body>
+        <div id="title">
+            <h1>VGDatabase</h1>
+            <h6>Version: {{ c_version }}</h6>
+        </div>
+        <nav>
+            <ul>
+                <a href="{{ url_for('home') }}" class="nav_link"><li>About</li></a>
+                <a href="{{ url_for('game_list') }}" class="nav_link"><li>Games</li></a>
+                <a href="{{ url_for('tag_list') }}" class="nav_link"><li>Tags</li></a>
+                <a href="{{ url_for('developer_list') }}" class="nav_link"><li>Developers</li></a>
+                <a href="{{ url_for('publisher_list') }}" class="nav_link"><li>Publishers</li></a>
+                {% if current_user.is_authenticated %}
+                    <a href="{{ url_for('user_account') }}" class="nav_link"><li>{{ current_user.username }}</li></a>
+                    {% if current_user.is_mod %}
+                        <a href="{{ url_for('mod_main') }}" class="nav_link"><li>Mod</li></a>
+                    {% endif %}
+                    {% if current_user.is_admin %}
+                        <a href="{{ url_for('admin_main') }}" class="nav_link"><li>Admin</li></a>
+                    {% endif %}
+                    <a href="{{ url_for('user_logout') }}" class="nav_link"><li>Logout</li></a>
+                {% else %}
+                    <a href="{{ url_for('user_login') }}" class="nav_link"><li>Login</li></a>
+                    <a href="{{ url_for('user_signup') }}" class="nav_link"><li>Signup</li></a>
+                {% endif %}
+            </ul>
+        </nav>
+        <div class="main">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </body>
+</html>

@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block content %}
+<div id="page_mainbody">
+        <div id="home_paragraph1">
+                <h3 id="page_header">Login</h3>
+                <div id="page_mainbody_home">
+                        <form id="login_form">
+                                <p>Username:</p>
+                                <input class="textbox" type="text" id="user_name" name="txt_user_name" required placeholder="Username">
+                                <br>
+                                <p>Password:</p>
+                                <input class="textbox" type="password" id="user_pass" name="txt_user_pass" maxlength="20" required placeholder="Password">
+                                <br>
+                                <input type="submit" value="Login" class="submit_button">
+                        </form>
+                        <p>Don't have an account?:</p>
+                        <a href="{{ url_for('user_signup') }}" class="button">Signup</a>
+                </div>
+        </div>
+</div>
+<script src="http://code.jquery.com/jquery.min.js"></script>
+<script src=" {{ url_for('static', filename='scripts/login.js') }}"></script>
+{% endblock %}
