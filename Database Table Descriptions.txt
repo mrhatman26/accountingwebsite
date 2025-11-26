@@ -45,8 +45,44 @@ Table Postpone Expense (table_postpone_expense):
 	-post_reason (String): The reason for this expense being made.
 	-post_times (Integer): The number of months/weeks to postpone this expense for (When this reaches 0, this expense will automatically be added to the current month's modifier table).
 	
+Table Actual Expenses (table_actual):
+	-act_id (Integer): The actual expense ID used to identify this actual expense and link it to other tables (Primary Key).
+	-act_name (String): The name of the expense. Used to name the thing that was paid for (E.G): A box of cereal).
+	-act_amount (Integer): The amount the expense costed.
+	-act_source (String): The source of the expense (E.G: The local pub... Which totally sells cereal?)
+	-act_date (Date): The date the expense was made (Default is the date the expense was created).
+	-act_p_type (Text): The type of payment. To be entered with a select tag with a bunch of default options such as Contactless and Cash.
+	-act_week (Integer 1-4): The week in which this payment was made. To be determined programatically from act_date. Minimum is 1, max is 4 unless setting_monthly is False then this can only be 1.
+	-act_reason (String): The reason this expense was made.
+	-act_isExpense (Boolean): If False, this will count as income. Default is True.
+	
+Table Expense Sources (table_sources) [Table not currently in use]:
+	-src_id (Integer): The source ID used to identify this source and link it to other tables (Primary Key).
+	-src_name (String): The name of the source.
+	-src_description (String): A description of the source.
+	
 Link Table Column Descriptions:
 
 Link User to Settings (link_user_settings):
 	-user_id (Integer): The user ID to link to (Primary Key) [Foreign Key].
 	-setting_id (Integer): The setting ID to link to [Foreign Key].
+	
+Link User to Month (link_user_month):
+	-user_id (Integer): The user ID to link to (Primary Key) [Foreign Key].
+	-month_id (Integer): The month ID to link to [Foreign Key].
+
+Link Month to Actual Expense (link_month_actual):
+	-month_id (Integer): The month ID to link to (Primary Key) [Foreign Key].
+	-act_id (Integer): The actual expense ID to link to [Foreign Key].
+
+Link Month to Monthly Expense (link_month_expense):
+	-month_id (Integer): The month ID to link to (Primary Key) [Foreign Key].
+	-exp_id (Integer): The monthly expense ID to link to (Primary Key) [Foreign Key].
+
+Link Month to Modifier (link_month_modifier):
+	-month_id (Integer): The month ID to link to (Primary Key) [Foreign Key].
+	-mod_id (Integer): The modifier ID to link to [Foreign Key].
+
+Link Month to Postponed Expense (link_month_postpone):
+	-month_id (Integer): The month ID to link to (Primary Key) [Foreign Key].
+	-post_id (Integer): The postponed payment ID to link to [Foreign Key].
