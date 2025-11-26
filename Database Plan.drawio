@@ -1,6 +1,6 @@
 <mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/26.0.9 Chrome/128.0.6613.186 Electron/32.2.5 Safari/537.36" version="26.0.9">
   <diagram name="Page-1" id="stubMuT7CdCw7u1-jpZv">
-    <mxGraphModel dx="1289" dy="753" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="4681" pageHeight="3300" math="0" shadow="0">
+    <mxGraphModel dx="1304" dy="767" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="4681" pageHeight="3300" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -89,7 +89,7 @@
         <mxCell id="VscN-PvWnz1tzIW9Ck_S-43" value="table_modifiers" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="VscN-PvWnz1tzIW9Ck_S-42" vertex="1">
           <mxGeometry width="200" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="VscN-PvWnz1tzIW9Ck_S-44" value="&lt;div&gt;mod_id: Int&lt;/div&gt;&lt;div&gt;mod_name: String&lt;/div&gt;&lt;div&gt;mod_amount: Int&lt;/div&gt;&lt;div&gt;mod_source: String&lt;/div&gt;&lt;div&gt;mod_reason: Text&lt;/div&gt;&lt;div&gt;mod_expense: Boolean (TString&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="VscN-PvWnz1tzIW9Ck_S-42" vertex="1">
+        <mxCell id="VscN-PvWnz1tzIW9Ck_S-44" value="&lt;div&gt;mod_id: Int&lt;/div&gt;&lt;div&gt;mod_name: String&lt;/div&gt;&lt;div&gt;mod_amount: Int&lt;/div&gt;&lt;div&gt;mod_source: String&lt;/div&gt;&lt;div&gt;mod_reason: Text&lt;/div&gt;&lt;div&gt;mod_expense: Boolean&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="VscN-PvWnz1tzIW9Ck_S-42" vertex="1">
           <mxGeometry y="40" width="200" height="160" as="geometry" />
         </mxCell>
         <mxCell id="VscN-PvWnz1tzIW9Ck_S-45" value="&lt;div&gt;Describes a month&#39;s modifiers. Theses are used to quickly modify the income/outcome without, for example, creating a new monthly expense.&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="VscN-PvWnz1tzIW9Ck_S-41" vertex="1">
@@ -232,7 +232,7 @@
         <mxCell id="G_VjlNnApbKTwPPNIkbK-32" value="link_month_postpone" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="G_VjlNnApbKTwPPNIkbK-31">
           <mxGeometry width="200" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="G_VjlNnApbKTwPPNIkbK-33" value="month_id: Int&lt;div&gt;mod_id: Int&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="G_VjlNnApbKTwPPNIkbK-31">
+        <mxCell id="G_VjlNnApbKTwPPNIkbK-33" value="month_id: Int&lt;div&gt;post_id: Int&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="G_VjlNnApbKTwPPNIkbK-31">
           <mxGeometry y="40" width="200" height="160" as="geometry" />
         </mxCell>
         <mxCell id="G_VjlNnApbKTwPPNIkbK-34" value="Links months to postponed expenses." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="G_VjlNnApbKTwPPNIkbK-30">
@@ -268,7 +268,7 @@
         <mxCell id="G_VjlNnApbKTwPPNIkbK-42" value="link_month_actual" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="G_VjlNnApbKTwPPNIkbK-41">
           <mxGeometry width="200" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="G_VjlNnApbKTwPPNIkbK-43" value="month_id: Int&lt;div&gt;mod_id: Int&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="G_VjlNnApbKTwPPNIkbK-41">
+        <mxCell id="G_VjlNnApbKTwPPNIkbK-43" value="month_id: Int&lt;div&gt;act_id: Int&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="G_VjlNnApbKTwPPNIkbK-41">
           <mxGeometry y="40" width="200" height="160" as="geometry" />
         </mxCell>
         <mxCell id="G_VjlNnApbKTwPPNIkbK-44" value="Links months to actual expenses." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="G_VjlNnApbKTwPPNIkbK-40">
