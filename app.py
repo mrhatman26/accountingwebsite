@@ -2,15 +2,13 @@ import ast, traceback
 from flask import Flask, render_template, url_for, request, redirect, abort
 from flask_login import LoginManager, current_user, login_user, logout_user
 from db_handler_users import *
-from db_handler_admin import *
-from db_handler_main import *
-from db_handler_links import *
-from db_loader import *
-from action_logger import *
+#from db_handler_admin import *
+#from db_handler_main import *
+#from db_handler_links import *
+#from action_logger import *
 from version_handler import *
 from user import User
 from global_vars import deployed, live
-from misc import get_current_page, test_datetime
 #from user import User
 
 '''Server Vars'''
