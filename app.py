@@ -27,7 +27,7 @@ def load_fuser(id):
     if len(user_check) <= 0:
         return None
     else:
-        return User(user_check[0], user_check[1], user_check[2], user_check[3])
+        return User(user_check[0], user_check[1], user_check[2])
 
 def get_user():
     try:
