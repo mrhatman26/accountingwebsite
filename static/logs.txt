@@ -1,0 +1,8 @@
+
+[2025.12.05 at 15:36:58]: 192.168.1.99 (User: Annonymous) successfully accessed /users/login/ (Login)
+[2025.12.05 at 15:37:40]: 192.168.1.99 (User: Annonymous) successfully accessed /users/login/ (Login)
+[2025.12.05 at 15:37:45]: 192.168.1.99 successfully logged in as jsmith55
+[2025.12.05 at 15:37:45]: 192.168.1.99 (User: jsmith55) successfully accessed / (Home)
+[2025.12.05 at 15:37:49]: 192.168.1.99 (User: jsmith55) successfully accessed /users/logout/ (Logout)
+[2025.12.05 at 15:37:49]: 192.168.1.99 (User: jsmith55) successfully logged out of their account
+[2025.12.05 at 15:37:49]: 192.168.1.99 (User: Annonymous) successfully accessed / (Home)

@@ -8,6 +8,7 @@ CREATE TABLE table_users(
     user_id INT NOT NULL AUTO_INCREMENT,
     user_name TEXT  NOT NULL,
     user_pass TEXT NOT NULL,
+    user_email TEXT,
     user_isAdmin BOOLEAN DEFAULT 0,
     PRIMARY KEY(user_id)
 );

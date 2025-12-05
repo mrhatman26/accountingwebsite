@@ -7,7 +7,7 @@ def get_db_config(deployed):
             'password': 'boundingthroughtime',
             'host': 'localhost',
             'port': 1234,
-            'database': 'vgadatabase'
+            'database': 'moneydatabase'
         }
     else: #Not in a Docker container; running locally.
         db_config = {
@@ -15,6 +15,6 @@ def get_db_config(deployed):
             'password': local_password,
             'host': 'localhost',
             'port': 3306,
-            'database': 'vgadatabase'
+            'database': 'moneydatabase'
         }
     return db_config

@@ -46,7 +46,7 @@ def home():
     return render_template('home.html', page_name="Home", c_version=version)
 
 '''User Routes'''
-#Account PAge
+#Account Page
 @app.route("/users/account/")
 def user_account():
     if current_user.is_authenticated:
@@ -77,9 +77,9 @@ def user_login_validate():
         try:
             userdata = ast.literal_eval(userdata)
             if user_check_exists(userdata["user_name"]):
-                if user_login_passcheck(userdata):
+                if user_check_pass(userdata):
                     admin_stat = user_check_admin(userdata["user_name"])
-                    login_user(User(user_get_id(userdata["user_name"]), userdata["user_name"], admin_stat[0], admin_stat[1]))
+                    login_user(User(user_get_id(userdata["user_name"]), userdata["user_name"], admin_stat))
                     login_log(request.remote_addr, userdata["user_name"])
                     return "success"
                 else:
