@@ -10,18 +10,12 @@ CREATE TABLE table_users(
     user_pass TEXT NOT NULL,
     user_email TEXT,
     user_isAdmin BOOLEAN DEFAULT 0,
+    user_setting_monthly BOOLEAN DEFAULT 1,
+    user_setting_del_prev BOOLEAN DEFAULT 0,
+    user_setting_def_p_use BOOLEAN DEFAULT 30,
+    user_setting_auto_month BOOLEAN DEFAULT 0,
+    user_setting_auto_next_date DATE,
     PRIMARY KEY(user_id)
-);
-
-DROP TABLE IF EXISTS table_settings;
-CREATE TABLE table_settings(
-    setting_id INT NOT NULL AUTO_INCREMENT,
-    setting_monthly BOOLEAN DEFAULT 1,
-    setting_del_prev BOOLEAN DEFAULT 0,
-    setting_def_p_use BOOLEAN DEFAULT 30,
-    setting_auto_month BOOLEAN DEFAULT 0,
-    setting_auto_next_date DATE NOT NULL,
-    PRIMARY KEY(setting_id)
 );
 
 DROP TABLE IF EXISTS table_months;
@@ -82,22 +76,13 @@ CREATE TABLE table_actual(
 
 DROP TABLE IF EXISTS table_sources;
 CREATE TABLE table_sources(
-    src_id INT NOT NULL,
+    src_id INT NOT NULL AUTO_INCREMENT,
     src_name TEXT NOT NULL,
     src_description TEXT,
     PRIMARY KEY(src_id)
 );
 
 /*Link Tables*/
-DROP TABLE IF EXISTS link_user_settings;
-CREATE TABLE link_user_settings(
-    user_id INT NOT NULL,
-    setting_id INT NOT NULL,
-    PRIMARY KEY(user_id),
-    FOREIGN KEY(user_id) REFERENCES table_users(user_id),
-    FOREIGN KEY(setting_id) REFERENCES table_settings(setting_id)
-);
-
 DROP TABLE IF EXISTS link_user_month;
 CREATE TABLE link_user_month(
     user_id INT NOT NULL,
@@ -109,36 +94,40 @@ CREATE TABLE link_user_month(
 
 DROP TABLE IF EXISTS link_month_expense;
 CREATE TABLE link_month_expense(
+    link_id INT NOT NULL AUTO_INCREMENT,
     month_id INT NOT NULL,
     exp_id INT NOT NULL,
-    PRIMARY KEY(month_id),
+    PRIMARY KEY(link_id),
     FOREIGN KEY(month_id) REFERENCES table_months(month_id),
     FOREIGN KEY(exp_id) REFERENCES table_monthly_expense(exp_id)
 );
 
 DROP TABLE IF EXISTS link_month_modifier;
 CREATE TABLE link_month_modifier(
+    link_id INT NOT NULL AUTO_INCREMENT,
     month_id INT NOT NULL,
     mod_id INT NOT NULL,
-    PRIMARY KEY(month_id),
+    PRIMARY KEY(link_id),
     FOREIGN KEY(month_id) REFERENCES table_months(month_id),
     FOREIGN KEY(mod_id) REFERENCES table_modifiers(mod_id)
 );
 
 DROP TABLE IF EXISTS link_month_postpone;
 CREATE TABLE link_month_postpone(
+    link_id INT NOT NULL AUTO_INCREMENT,
     month_id INT NOT NULL,
     post_id INT  NOT NULL,
-    PRIMARY KEY(month_id),
+    PRIMARY KEY(link_id),
     FOREIGN KEY(month_id) REFERENCES table_months(month_id),
     FOREIGN KEY(post_id) REFERENCES table_postpone_expense(post_id)
 );
 
 DROP TABLE IF EXISTS link_month_actual;
 CREATE TABLE link_month_actual(
+    link_id INT NOT NULL AUTO_INCREMENT,
     month_id INT NOT NULL,
     act_id INT NOT NULL,
-    PRIMARY KEY(month_id),
+    PRIMARY KEY(link_id),
     FOREIGN KEY(month_id) REFERENCES table_months(month_id),
     FOREIGN KEY(act_id) REFERENCES table_actual(act_id)
 );

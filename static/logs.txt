@@ -6,3 +6,10 @@
 [2025.12.05 at 15:37:49]: 192.168.1.99 (User: jsmith55) successfully accessed /users/logout/ (Logout)
 [2025.12.05 at 15:37:49]: 192.168.1.99 (User: jsmith55) successfully logged out of their account
 [2025.12.05 at 15:37:49]: 192.168.1.99 (User: Annonymous) successfully accessed / (Home)
+[2025.12.08 at 11:09:07]: 192.168.1.99 (User: Annonymous) successfully accessed / (Home)
+[2025.12.08 at 11:09:09]: 192.168.1.99 (User: Annonymous) successfully accessed /users/signup/ (Signup)
+[2025.12.08 at 11:09:32]: 192.168.1.99 (User: Annonymous) successfully accessed /users/signup/validate/ (Signup Validation)
+[2025.12.08 at 11:09:32]: 192.168.1.99 successfully created a new account with the username of johnsmith55
+[2025.12.08 at 11:09:33]: 192.168.1.99 (User: Annonymous) successfully accessed /users/login/ (Login)
+[2025.12.08 at 11:09:40]: 192.168.1.99 successfully logged in as johnsmith55
+[2025.12.08 at 11:09:40]: 192.168.1.99 (User: johnsmith55) successfully accessed / (Home)
