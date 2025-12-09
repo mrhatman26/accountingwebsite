@@ -1,6 +1,7 @@
 console.log("login.js loaded");
 let loginForm = document.getElementById("login_form");
 let errorMessage = null;
+
 function oldErrorCheck(){
     var oldErrorMessage = document.getElementById("errorMessage");
     if (oldErrorMessage === null){ //Finish this!

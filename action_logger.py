@@ -99,23 +99,13 @@ def login_log(ip, username, failed=False, logout=False, admin=False, auto=False)
     log_file.write(text)
     log_file.close()
 
-def modify_user_log(ip, username, new_value, is_username=False, is_email=False, is_desc=False, failed=False):
+def modify_user_log(ip, username, failed=False):
     log_file = open("static/logs.txt", "at")
     text = get_time()
     if failed is False:
-        if is_username is True:
-            text = text + ": " + ip + " (User: " + username + ") successfully changed their username to " + new_value
-        if is_email is True:
-            text = text + ": " + ip + " (User: " + username + ") successfully changed their email to " + new_value
-        if is_desc is True:
-            text = text + ": " + ip + " (User: " + username + ") successfully changed their description to " + new_value
+        text = text + ": " + ip + " (User: " + username + ") successfully modified their account details"
     else:
-        if is_username is True:
-            text = text + ": " + ip + " (User: " + username + ") FAILED to change their username to " + new_value
-        if is_email is True:
-            text = text + ": " + ip + " (User: " + username + ") FAILED to change their email to " + new_value
-        if is_desc is True:
-            text = text + ": " + ip + " (User: " + username + ") FAILED to change their description to " + new_value
+        text = text + ": " + ip + " (User: " + username + ") FAILED to modify their account details"
     log_file.write(text)
     log_file.close()
 

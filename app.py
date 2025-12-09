@@ -134,7 +134,35 @@ def user_signup_validate():
             error_log(request.remote_addr, userdata["user_name"], "Server error during user creation", theException=traceback.format_exc())
             return "servererror"
     
-#Modify Account (TBD)
+#Modify Account
+@app.route("/users/modify/validate/", methods=["POST"])
+def user_modify():
+    if current_user.is_authenticated:
+        access_log(request.remote_addr, get_user(), "/users/modify/validate/ (Modify Validation)")
+        userdata = request.get_data()
+        userdata = userdata.decode()
+        userdata = ast.literal_eval(userdata)
+        try:
+            if user_check_exists(userdata["user_name"]) is False or current_user.username == userdata["user_name"]:
+                userdata["user_id"] = current_user.id
+                if user_modify_details(userdata) is True:
+                    modify_user_log(request.remote_addr, get_user())
+                    return "success"
+                else:
+                    modify_user_log(request.remote_addr, get_user(), failed=True)
+                    error_log(request.remote_addr, get_user(), "user_modify_details failed to modify user details")
+                    return "servererror"
+            else:
+                modify_user_log(request.remote_addr, get_user(), failed=True)
+                error_log(request.remote_addr, get_user(), "New username already in use by another user")
+                return "userexists"
+        except Exception as e:
+            modify_user_log(request.remote_addr, get_user(), failed=True)
+            error_log(request.remote_addr, get_user(), "Server error during user modification", theException=traceback.format_exc())
+            return "servererror"
+    else:
+        access_log(request.remote_addr, get_user(), "/users/modify/validate/ (Modify Validation)", failed=True, no_auth=True)
+        abort(404)
 
 #Delete Account (TBD)
 @app.route("/users/modify/delete/")

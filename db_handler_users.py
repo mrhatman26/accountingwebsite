@@ -153,3 +153,17 @@ def user_add_new(new_userdata):
         cursor.close()
         database.close()
         return False
+    
+def user_modify_details(new_userdata):
+    database = mysql.connector.connect(**get_db_config(deployed))
+    cursor = database.cursor()
+    try:
+        cursor.execute("UPDATE table_users SET user_name = %s, user_email = %s, user_setting_monthly = %s, user_setting_del_prev = %s, user_setting_def_p_use = %s WHERE user_id = %s", (new_userdata["user_name"], new_userdata["user_email"], new_userdata["user_setting_monthly"], new_userdata["user_setting_del_prev"], new_userdata["user_setting_def_p_use"], new_userdata["user_id"],))
+        database.commit()
+        cursor.close()
+        database.close()
+        return True
+    except:
+        cursor.close()
+        database.close()
+        return False
