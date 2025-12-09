@@ -4,20 +4,44 @@
         <div id="home_paragraph1">
                 <h3 id="page_header">{{ current_user.username }}</h3>
                 <div id="page_mainbody_home">
-                        <p>Email: {{ user_data.user_email }}</p>
-                        <div id="change_email_div">
-                            <a class="button" id="change_email_button">Modify Email</a>
-                        </div>
+                        <form id="modify_user_form">
+                                <p>Username:</p>
+                                <input class="textbox" type="text" id="user_forename" name="txt_user_forename" maxlength="20" required placeholder="Username" value="{{ user_data.user_name }}">
+                                <br>
+                                <p>Email:</p>
+                                <input class="textbox" type="text" id="user_email" name="txt_user_email" required placeholder="Email" pattern="([A-Za-z0-9]+@[A-Za-z0-9]+\.[A-Za-z0-9]+)|([A-Za-z0-9]+@[A-Za-z0-9]+\.[A-Za-z0-9]+\.[A-Za-z0-9]+)" title="Must be a valid email with '@' and '.com' or similar." value="{{ user_data.user_email }}">
+                                <br>
+                                <p>Monthly or Weekly Payments?:</p>
+                                <p>(Note: Switching this will delete ALL previous month/week data)</p>
+                                <select class="dropdown" id="setting_monthly" name="select_setting_monthly" required>
+                                        {% if user_data.user_setting_monthly == 0 %}
+                                                <option value="0" selected>Weekly</option>
+                                                <option value="1">Monthly</option>
+                                        {% else %}
+                                                <option value="0">Weekly</option>
+                                                <option value="1" selected>Monthly</option>
+                                        {% endif %}
+                                </select>
+                                <br>
+                                <p>Would you like to delete previous payments?:</p>
+                                <select class="dropdown" id="setting_delete_prev" name="select_setting_delete_prev" required>
+                                        {% if user_data.user_setting_del_prev == 0 %}
+                                                <option value="0" selected>No</option>
+                                                <option value="1">Yes</option>
+                                        {% else %}
+                                                <option value="0">No</option>
+                                                <option value="1" selected>Yes</option>
+                                        {% endif %}
+                                </select>
+                                <br>
+                                <p></p>
+                        </form>
+                        <a href="{{ url_for('home') }}" class="button" style="background-color: green; border-color: green;">Update Account</a>
                         <p></p>
-                        <div id="change_name_div">
-                            <a class="button" id="change_name_button">Modify Username</a>
-                        </div>
-                        <p></p>
-                        <a href="{{ url_for('user_delete_validate') }}" class="button" style="background-color: red; border-color: red;">Delete Account</a>
+                        <a href="{{ url_for('home') }}" class="button" style="background-color: red; border-color: red;">Delete Account</a>
                 </div>
         </div>
 </div>
 <script src="http://code.jquery.com/jquery.min.js"></script>
-<script src=" {{ url_for('static', filename='scripts/user_page/user_change_name.js') }}"></script>
-<script src=" {{ url_for('static', filename='scripts/user_page/user_change_email.js') }}"></script>
+<script src=" {{ url_for('static', filename='scripts/user_page/user_change_info.js') }}"></script>
 {% endblock %}

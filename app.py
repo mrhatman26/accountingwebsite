@@ -51,7 +51,9 @@ def home():
 def user_account():
     if current_user.is_authenticated:
         access_log(request.remote_addr, get_user(), "/users/account/ (Account Page)")
-        user_data = user_single_get_all(current_user.id)
+        user_data = user_get_data(current_user.id)
+        for item in user_data:
+            fprint(item + " | " + str(user_data[item]) + " | " + str(type(user_data[item])))
         return render_template("users/user_page.html", page_name=get_user(), user_data=user_data, c_version=version)
     else:
         access_log(request.remote_addr, get_user(), "/users/account/ (Account Page)", failed=True, no_auth=True)
