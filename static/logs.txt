@@ -1,0 +1,6 @@
+
+[2025.12.10 at 10:49:20]: 192.168.1.99 successfully logged in as johnsmith55
+[2025.12.10 at 10:49:20]: 192.168.1.99 (User: johnsmith55) successfully accessed / (Home)
+[2025.12.10 at 10:49:34]: 192.168.1.99 (User: johnsmith55) successfully accessed / (Home)
+[2025.12.10 at 10:50:03]: 192.168.1.99 (User: johnsmith55) successfully accessed /users/modify/password/ (Modify Password)
+[2025.12.10 at 10:50:03]: 192.168.1.99 (User: johnsmith55) FAILED to access /users/modify/password/ (The requested resource returned a 404)

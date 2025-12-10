@@ -163,6 +163,11 @@ def user_modify():
     else:
         access_log(request.remote_addr, get_user(), "/users/modify/validate/ (Modify Validation)", failed=True, no_auth=True)
         abort(404)
+#Modify Password TBD
+@app.route("/users/modify/password/")
+def user_modify_password():
+    access_log(request.remote_addr, get_user(), "/users/modify/password/ (Modify Password)")
+    abort(404)
 
 #Delete Account (TBD)
 @app.route("/users/modify/delete/")
@@ -222,6 +227,7 @@ def admin_main():
 #404 is page not found.
 @app.errorhandler(404)
 def page_invalid(e):
+    access_log(request.remote_addr, get_user(), request.path, failed=True, not_found=True)
     return render_template('errors/404.html'), 404
 @app.errorhandler(405)
 def page_wrong_method(e):
